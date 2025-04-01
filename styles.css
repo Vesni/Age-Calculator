@@ -1,0 +1,86 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+h1 {
+    color: #4a90e2;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid #4a90e2;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 80%;
+    max-width: 300px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.hidden {
+    display: none;
+}
+
+#birthdayMessage {
+    margin-top: 20px;
+}
+
+#birthdayMessage h2 {
+    color: #ff6347; /* Tomato color for birthday message */
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+video {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
