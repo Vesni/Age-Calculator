@@ -1,23 +1,29 @@
-document.getElementById('calculate').addEventListener('click', function() {
-    const birthdayInput = document.getElementById('birthday').value;
-    const birthday = new Date(birthdayInput);
-    const today = new Date();
+function calculateAge() {
+    let birthYear = document.getElementById('birthYear').value;
+    let currentYear = new Date().getFullYear();
+    let age = currentYear - birthYear;
     
-    if (birthdayInput) {
-        const age = today.getFullYear() - birthday.getFullYear();
-        const monthDiff = today.getMonth() - birthday.getMonth();
+    if (birthYear && age >= 0) {
+        document.getElementById('ageDisplay').innerText = `You are now ${age} years old!`;
+        document.getElementById('calculator').classList.add('hidden');
+        document.getElementById('birthdayMessage').classList.remove('hidden');
+        document.body.style.background = "#ffcc00";
         
-        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthday.getDate())) {
-            age--;
-        }
+        // Add celebratory animation
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 5000);
+    } else {
+        alert("Please enter a valid birth year.");
+    }
+}
 
-        const resultDiv = document.getElementById('result');
-        const birthdayMessageDiv = document.getElementById('birthdayMessage');
+// Function to reset the page
+function resetPage() {
+    document.getElementById('calculator').classList.remove('hidden');
+    document.getElementById('birthdayMessage').classList.add('hidden');
+    document.getElementById('birthYear').value = "";
+    document.body.style.background = "linear-gradient(to right, #ff758c, #ff7eb3)";
+}
 
-        if (today.getMonth() === birthday.getMonth() && today.getDate() === birthday.getDate()) {
-            resultDiv.innerHTML = '';
-            birthdayMessageDiv.classList.remove('hidden');
-            document.getElementById('birthdayVideo').play();
-        } else {
-            resultDiv.innerHTML = `You are ${age} years old.`;
-            birthdayMessageDiv
