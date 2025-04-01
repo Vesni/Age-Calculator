@@ -3,62 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(to right, #ff758c, #ff7eb3);
-            transition: background 1s;
-        }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        input, button {
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
+    <title>Birthday Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container" id="calculator">
-        <h2>Enter Birth Year</h2>
-        <input type="number" id="birthYear" placeholder="e.g. 1980">
-        <br>
+        <h1>🎂 Age Calculator 🎂</h1>
+        <p>Enter your birth year and see your age instantly!</p>
+        <input type="number" id="birthYear" placeholder="Enter birth year">
         <button onclick="calculateAge()">Convert</button>
     </div>
     
     <div class="container hidden" id="birthdayMessage">
         <h1>🎉 Happy Birthday! 🎉</h1>
         <h2 id="ageDisplay"></h2>
+        <video controls>
+            <source src="birthday_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <img src="birthday_image.jpg" alt="Birthday Celebration">
+        <button onclick="resetPage()">Go Back</button>
     </div>
     
-    <script>
-        function calculateAge() {
-            let birthYear = document.getElementById('birthYear').value;
-            let currentYear = new Date().getFullYear();
-            let age = currentYear - birthYear;
-            
-            if (birthYear && age >= 0) {
-                document.getElementById('ageDisplay').innerText = `You are now ${age} years old!`;
-                document.getElementById('calculator').classList.add('hidden');
-                document.getElementById('birthdayMessage').classList.remove('hidden');
-                document.body.style.background = "#ffcc00";
-            } else {
-                alert("Please enter a valid birth year.");
-            }
-        }
-    </script>
+    <div class="watermark">Vesni</div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
